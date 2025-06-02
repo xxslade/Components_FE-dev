@@ -4,7 +4,7 @@ import { IoSearch } from "react-icons/io5";
 function Navbar() {
   return (
     <div>
-      <nav className="flex flex-row justify-between items-center py-4 px-8 bg-[#513B3C] rounded mt-[10px] ml-[20px] mr-[20px]">
+      <nav className="flex flex-row justify-between items-center py-4 px-8 bg-[#1e293b]">
         <div className="text-xl font-bold text-red-200 ml-[20px]">
           COMPONENTS
         </div>
