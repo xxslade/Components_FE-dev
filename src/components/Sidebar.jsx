@@ -2,7 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <div className="m-0 bg-[#1e293b] w-[20vw] h-screen text-[bisque] font-['Franklin_Gothic_Medium','Arial_Narrow','Arial',sans-serif]">
+    <div className=" bg-[#1e293b] w-[20vw] h-full text-[bisque] font-['Franklin_Gothic_Medium','Arial_Narrow','Arial',sans-serif]">
       <div className="font-['Segoe_UI','Tahoma','Geneva','Verdana',sans-serif] text-lg flex items-center justify-center h-[10%] text-white">
         Get started with your element!
       </div>

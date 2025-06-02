@@ -31,7 +31,7 @@ export default function DynamicCompiler() {
 
   return (
     <div className="p-4 space-y-6 flex flex-col">
-      <div className=" w-4/7 h-72 border rounded overflow-hidden">
+      <div className="h-[20vw] border rounded overflow-hidden">
         <Editor
           height="100%"
           defaultLanguage="javascript"
