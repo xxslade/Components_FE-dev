@@ -1,21 +1,12 @@
-import React from 'react';
-import buttonTemplates from './designs/buttonTemplates';
-import DynamicCompiler from '../components/DynamicCompiler';
+import React from 'react'
 
-const HomePage = () => {
-  const allCompilers = Object.entries(buttonTemplates).map(([key, code]) => {
-  return <DynamicCompiler key={key} defaultCode={code} />;
-});
-
+function HomePage() {
   return (
-    
-    <>
-    {/* // <div className="p-4 grid grid-cols-2 gap-4"> */}
+    <div>
+      This is HomePage.
+    </div>
+  )
+}
 
-     {allCompilers}
-    {/* // </div> */}
-    </>
-  );
-};
+export default HomePage
 
-export default HomePage;
