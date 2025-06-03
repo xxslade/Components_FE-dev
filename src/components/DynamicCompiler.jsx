@@ -32,9 +32,12 @@ export default function DynamicCompiler({defaultCode}) {
 
   return (
     <div className="p-4 space-y-6 flex flex-col">
+      
       <div className="w-4/7 border p-6 rounded bg-white shadow min-h-[4rem]">
         {Comp ? <Comp /> : <p className="text-red-600">{error || "Nothing to render"}</p>}
       </div>
+
+
       <div className="h-[20vw] border rounded overflow-hidden">
         <Editor
           height="100%"

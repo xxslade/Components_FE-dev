@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoSearch } from "react-icons/io5";
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -19,7 +20,8 @@ function Navbar() {
         </div>
 
         <div className='flex flex-row gap-8 mr-[80px]'>
-          <span className='text-white'>Home</span>
+          
+          <NavLink to="/" className="text-white"> Home </NavLink>
           <span className='text-white'>Explore</span>
         </div>
       </nav>

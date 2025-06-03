@@ -8,7 +8,7 @@ function Sidebar() {
       </div>
       <div className="flex flex-col justify-evenly items-center h-[25vh]">
         <NavLink
-          to="/"
+          to="/buttons"
           className={({ isActive }) =>
             `text-white no-underline w-full h-full ${isActive ? "bg-[#516591]" : "bg-[#233753]"
             } flex justify-center items-center text-lg hover:bg-[#475569]`

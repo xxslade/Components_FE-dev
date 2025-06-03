@@ -4,7 +4,9 @@ import Sidebar from './components/Sidebar.jsx';
 import HomePage from './pages/HomePage.jsx';
 import CardPage from './pages/CardPage.jsx';
 import NavPage from './pages/NavPage.jsx';
+import ButtonPage from './pages/ButtonPage.jsx';
 import './App.css';
+
 
 function App() {
   return (
@@ -18,7 +20,8 @@ function App() {
         
         <div className='flex-1 p-4'>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
+          <Route path="/buttons" element={<ButtonPage />} />
           <Route path="/cards" element={<CardPage/>} />
           <Route path="/navbars" element={<NavPage/>} />
         </Routes>
