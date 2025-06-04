@@ -3,10 +3,12 @@ import { NavLink, Link } from 'react-router-dom';
 function Sidebar() {
   return (
     <div className=" bg-[#1e293b] w-[20vw] h-full text-[bisque] font-['Franklin_Gothic_Medium','Arial_Narrow','Arial',sans-serif]">
-      <div className="font-['Segoe_UI','Tahoma','Geneva','Verdana',sans-serif] text-lg flex items-center justify-center h-[10vh] text-white">
+      <div className="sticky top-0">
+      <div className="font-['Segoe_UI','Tahoma','Geneva','Verdana',sans-serif] text-lg flex items-center justify-center h-[10vh] text-blue-900  bg-blue-300">
         Get started with your element!
       </div>
-      <div className="flex flex-col justify-evenly items-center h-[25vh]">
+      <div className="flex flex-col justify-evenly items-center h-[25vh]  ">
+
         <NavLink
           to="/buttons"
           className={({ isActive }) =>
@@ -37,7 +39,7 @@ function Sidebar() {
           Cards
         </NavLink>
 
-
+          </div>
       </div>
     </div>
   );
