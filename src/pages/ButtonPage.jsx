@@ -1,17 +1,9 @@
 import React from 'react';
-import buttonTemplates from './designs/buttonTemplates';
-import DynamicCompiler from '../components/DynamicCompiler';
+import buttonTemplates from '../designs/buttonTemplates';
+import AllCompilers from '../components/AllCompilers';
 
 const ButtonPage = () => {
-  const allCompilers = Object.entries(buttonTemplates).map(([key, code]) => (
-    <div
-      key={key}
-      className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300"
-    >
-      <DynamicCompiler defaultCode={code} />
-    </div>
-  ));
-
+  
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-6">
       <div className="max-w-7xl mx-auto">
@@ -20,7 +12,7 @@ const ButtonPage = () => {
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {allCompilers}
+          <AllCompilers templateType={buttonTemplates}/>
         </div>
       </div>
     </div>
