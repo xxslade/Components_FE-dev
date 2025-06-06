@@ -1,16 +1,8 @@
 import React from 'react'
-import DynamicCompiler from '../components/DynamicCompiler'
-import navTemplates from './designs/navTemplates'
+import navTemplates from '../designs/navTemplates'
+import AllCompilers from '../components/AllCompilers'
 
 const NavPage = () => {
-  const allCompilers = Object.entries(navTemplates).map(([key, code]) => (
-    <div
-      key={key}
-      className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
-    >
-      <DynamicCompiler defaultCode={code} />
-    </div>
-  ));
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-10 px-4">
@@ -20,7 +12,7 @@ const NavPage = () => {
         </h1>
 
         <div className='flex flex-col gap-10'>
-          {allCompilers}
+          <AllCompilers templateType={navTemplates}/>
         </div>
       </div>
     </div>
