@@ -1,1 +1,8 @@
-@import "tailwindcss"
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+
+@theme{
+    --font-cormorant : "Cormorant", serif;
+    --font-sans : "DM Sans", sans-serif;
+}
