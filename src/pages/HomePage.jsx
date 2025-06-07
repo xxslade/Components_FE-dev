@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ai from '../assets/ai10.png';
 import snippet from '../assets/snippet1.png';
 import icon from '../assets/icon.png'
-import logo from '../assets/logo7.png';
+import logo from '../assets/logo10.png';
 import hero from '../assets/hero1.png'
 import HomePageCard from '../components/HomePageCard';
 
