@@ -11,15 +11,16 @@ import './App.css';
 
 function App() {
   return (
+
     <Router>
       <div className='w-full h-screen flex flex-col bg-[#dfd9d9]'>
 
         <Navbar />
 
         <div className='flex-1 flex'>
-          <Sidebar />
+          {/* <Sidebar /> */}
 
-          <div className='flex-1 p-4'>
+          <div className='flex-1'>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/buttons" element={<ButtonPage />} />
