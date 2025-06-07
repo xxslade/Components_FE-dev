@@ -6,11 +6,11 @@ function HomePageCard({ picture, heading, content, linkText }) {
       <img src={picture} alt="icon" className="w-14 h-14 mb-4 " />
       <p className="text-3xl font-semibold font-cormorant text-white">{heading}</p>
       <p className="text-lg font-sans text-gray-300">{content}</p>
-      {linkText && (
+      {/* {linkText && (
         <button className="text-sm text-white mt-2 hover:underline">
           {linkText} →
         </button>
-      )}
+      )} */}
     </div>
   );
 }
