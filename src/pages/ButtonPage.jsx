@@ -11,9 +11,11 @@ const ButtonPage = () => {
           HTML Button Designs Playground
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <AllCompilers templateType={buttonTemplates}/>
-        </div>
+      < div className='flex flex-col gap-10'>
+        <AllCompilers templateType={buttonTemplates} />
+      </div>
+
+
       </div>
     </div>
   );

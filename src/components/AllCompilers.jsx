@@ -4,11 +4,15 @@ import DynamicCompiler from './DynamicCompiler'
 const AllCompilers = ({ templateType }) => {
     const allCompilers = Object.entries(templateType).map(([key, code]) => (
         <div
-            key={key}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300"
-        >
-            <DynamicCompiler defaultCode={code} />
-        </div>
+  key={key}
+  className="flex justify-center items-center bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 
+             transition-all duration-300 hover:shadow-2xl hover:border-blue-500 dark:hover:border-blue-400 group"
+>
+  <div className="w-full max-w-4xl">
+    <DynamicCompiler defaultCode={code} />
+  </div>
+</div>
+
     ))
     return (
         <div>

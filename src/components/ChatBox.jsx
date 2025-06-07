@@ -98,7 +98,7 @@ const ChatBox = () => {
     const CollapsedChatBox = (
         <div className="h-12 w-1/5 p-2 bg-gray-800 text-white rounded fixed bottom-0 right-0">
             <div className="flex justify-between items-center">
-                <span className='text-gray-500'>Have doubts understanding code?</span>
+                <span className='text-gray-500'>Have doubts?</span>
                 <button onClick={() => setIsCollapsed(true)}>Expand</button>
             </div>
         </div>

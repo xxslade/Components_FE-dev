@@ -33,7 +33,7 @@ export default function DynamicCompiler({defaultCode}) {
   return (
     <div className="p-4 space-y-6 flex flex-col">
       
-      <div className="w-6/7 border p-6 rounded bg-white shadow min-h-[4rem]">
+      <div className="w-7/7 border p-6 rounded bg-white shadow min-h-[4rem]">
         {Comp ? <Comp /> : <p className="text-red-600">{error || "Nothing to render"}</p>}
       </div>
 

@@ -19,7 +19,7 @@ function App() {
         <div className='flex-1 flex'>
           <Sidebar />
 
-          <div className='flex-1 p-4'>
+          <div className='flex-1'>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/buttons" element={<ButtonPage />} />
