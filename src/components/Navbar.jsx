@@ -1,14 +1,13 @@
 import React from 'react'
 import { IoSearch } from "react-icons/io5";
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/logo7.png'
 
 function Navbar() {
   return (
     <div>
-      <nav className="flex flex-row justify-between items-center py-4 px-8 bg-[#1e293b]">
-        <div className="text-xl font-bold text-red-200 ml-[20px]">
-          COMPONENTS
-        </div>
+      <nav className="flex flex-row justify-between items-center py-4 px-8 bg-[#310410]">
+        <img src={logo} alt="LOGO" className='w-40 h-[80px]'/>
 
         <div className="flex items-center gap-2 border px-2 py-1 rounded">
           <input

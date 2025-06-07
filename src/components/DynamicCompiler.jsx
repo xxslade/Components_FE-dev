@@ -7,6 +7,7 @@ export default function DynamicCompiler({defaultCode}) {
   const [jsxCode, setJsxCode] = useState(defaultCode);
   const [Comp, setComp] = useState(null); 
   const [error, setError] = useState(null);
+  const [copyStatus, setCopyStatus] = useState("");
 
   useEffect(() => {
     try {
@@ -30,6 +31,16 @@ export default function DynamicCompiler({defaultCode}) {
     }
   }, [jsxCode]);
 
+  const handleCopy = async () => {
+    try{
+      await navigator.clipboard.writeText(jsxCode);
+      setCopyStatus("Copied!");
+      setTimeout(() => setCopyStatus(""), 1500);
+    }catch(err){
+      setCopyStatus("Failed to copy!");
+    }
+  };
+
   return (
     <div className="p-4 space-y-6 flex flex-col">
       
@@ -37,26 +48,34 @@ export default function DynamicCompiler({defaultCode}) {
         {Comp ? <Comp /> : <p className="text-red-600">{error || "Nothing to render"}</p>}
       </div>
 
+      <div className="relative">
+        <button
+        onClick={handleCopy}
+        className="absolute -top-8 right-0 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm shadow"
+      >
+        {copyStatus || "Copy"}
+      </button>
 
-      <div className="h-[20vw] border rounded overflow-hidden">
-        <Editor
-          height="100%"
-          defaultLanguage="javascript"
-          defaultValue={jsxCode}
-          value={jsxCode}
-          onChange={(value) => setJsxCode(value || "")}
-          theme="vs-dark"
-          options={{
-            wordWrap: 'on', // Enables word wrap
-            wrappingIndent: 'same', // Optional: Indent wrapped lines
-            fontSize: 14,
-            minimap: { enabled: false },
-            fontFamily: "monospace",
-          }}
-        />
-      </div>
+   
+    <div className="h-[20vw] border rounded overflow-hidden">
+     <Editor
+        height="100%"
+        defaultLanguage="javascript"
+        value={jsxCode}
+        onChange={(value) => setJsxCode(value || "")}
+        theme="vs-dark"
+        options={{
+          wordWrap: 'on',
+          wrappingIndent: 'same',
+          fontSize: 14,
+          minimap: { enabled: false },
+          fontFamily: "monospace",
+        }}
+      />
+    </div>
+  </div>
 
-      
+    
     </div>
   );
 }
