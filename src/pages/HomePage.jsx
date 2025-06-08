@@ -36,9 +36,8 @@ const HomePage = () => {
             </p>
           <div className="flex gap-4">
             
-            <button className="font-sans bg-lime-600 hover:bg-lime-700 text-white text-sm font-medium px-5 py-2 rounded-md shadow">
-              Explore
-            </button>
+          <button  className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Explore</button>
+
             <button className="font-sans bg-[#491C25] hover:bg-[#5a1d2e] text-white text-sm font-medium px-5 py-2 rounded-md border border-[#491C25]">
               Learn More
             </button>
