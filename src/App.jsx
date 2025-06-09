@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar.jsx';
-import Sidebar from './components/Sidebar.jsx';
+import Sidebar from './components/SideBar.jsx';
 import HomePage from './pages/HomePage.jsx';
 import CardPage from './pages/CardPage.jsx';
 import NavPage from './pages/NavPage.jsx';
@@ -11,18 +11,22 @@ import ChatBox from './components/ChatBox.jsx';
 import SignupPage from './pages/SignupPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import './App.css';
+import { useState } from 'react';
+import GlobalProvider from './context/GlobalProvider.jsx';
 
 
 function App() {
+  
+
   return (
+    <GlobalProvider>
+      <Router>
+        <div className='w-full h-screen flex flex-col bg-[#dfd9d9]'>
 
-    <Router>
-      <div className='w-full h-screen flex flex-col bg-[#dfd9d9]'>
+          <Navbar />
 
-        <Navbar />
-
-        <div className='flex-1 flex'>
-          {/* <Sidebar /> */}
+          <div className='flex-1 flex'>
+            <Sidebar />
 
           <div className='flex-1'>
             <Routes>
@@ -34,12 +38,13 @@ function App() {
               <Route path="/login" element={<LoginPage/>} />
             </Routes>
           </div>
+
+          <ChatBox />
         </div>
-        <ChatBox />
-      </div>
-      <ToastContainer/>
+    <ToastContainer/>
+    </div>
     </Router>
-    
+    </GlobalProvider>
   );
 }
 

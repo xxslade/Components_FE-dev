@@ -14,7 +14,7 @@ function Navbar() {
           <input
             type="text"
             placeholder='Search'
-            className="outline-none placeholder-white"
+            className="outline-none placeholder-white text-white"
           />
           <IoSearch />
         </div>
