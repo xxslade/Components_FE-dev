@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar.jsx';
-import Sidebar from './components/SideBar.jsx';
+import Sidebar from './components/Sidebar.jsx';
 import HomePage from './pages/HomePage.jsx';
 import CardPage from './pages/CardPage.jsx';
 import NavPage from './pages/NavPage.jsx';
