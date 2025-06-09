@@ -1,7 +1,7 @@
 import React from 'react';
 import buttonTemplates from '../designs/buttonTemplates';
 import AllCompilers from '../components/AllCompilers';
-import Sidebar from '../components/SideBar';
+import Sidebar from '../components/Sidebar';
 
 const ButtonPage = () => {
   

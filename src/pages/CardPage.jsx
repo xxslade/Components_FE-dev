@@ -1,7 +1,7 @@
 import React from 'react'
 import AllCompilers from '../components/AllCompilers';
 import cardTemplates from '../designs/cardTemplates'
-import SideBar from '../components/SideBar'
+import SideBar from '../components/Sidebar'
 
 const CardPage = () => {
    
