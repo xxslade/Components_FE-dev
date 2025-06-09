@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ai from '../assets/ai10.png';
 import snippet from '../assets/snippet1.png';
 import icon from '../assets/icon.png'
-import logo from '../assets/logo7.png';
+import logo from '../assets/logo10.png';
 import hero from '../assets/hero1.png'
 import HomePageCard from '../components/HomePageCard';
 import Sidebar from '../components/SideBar';
@@ -31,21 +31,20 @@ const HomePage = () => {
                 </h1>
               </div>
 
-              {/* Description and Buttons */}
-              <div className="flex-1 max-w-md space-y-16">
+          {/* Description and Buttons */}
+        <div className="flex-1 max-w-md space-y-16">
+            
+            <p className="text-lg font-sans text-gray-200 mt-12">
+              Welcome to your go-to resource for reusable UI components. Explore a diverse range
+              of styles and designs to enhance your web projects effortlessly.
+            </p>
+          <div className="flex gap-4">
+            
+          <button  className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Explore</button>
 
-                <p className="text-lg font-sans text-gray-200 mt-12">
-                  Welcome to your go-to resource for reusable UI components. Explore a diverse range
-                  of styles and designs to enhance your web projects effortlessly.
-                </p>
-                <div className="flex gap-4">
-
-                  <button className="font-sans bg-lime-600 hover:bg-lime-700 text-white text-sm font-medium px-5 py-2 rounded-md shadow">
-                    Explore
-                  </button>
-                  <button className="font-sans bg-[#491C25] hover:bg-[#5a1d2e] text-white text-sm font-medium px-5 py-2 rounded-md border border-[#491C25]">
-                    Learn More
-                  </button>
+            <button className="font-sans bg-[#491C25] hover:bg-[#5a1d2e] text-white text-sm font-medium px-5 py-2 rounded-md border border-[#491C25]">
+              Learn More
+            </button>
 
                 </div>
 
