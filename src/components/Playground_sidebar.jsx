@@ -44,7 +44,7 @@ function Playground_sidebar() {
                 e.dataTransfer.setData('componentCode', code);
                 e.dataTransfer.setData('componentType', selectedCategory);
               }}
-              className="border p-4 rounded bg-gray-50"
+              className="border max-w-md rounded bg-gray-400"
               >
                 <DynamicCompiler defaultCode={code} previewOnly={true}/>
               </div>

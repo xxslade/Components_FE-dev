@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import DynamicCompiler from './DynamicCompiler'
 
-function PlaygroundCanvas({onGenerateLayout}) {
+function PlaygroundCanvas() {
   
     const [droppedComponents, setDroppedComponents] = useState([]);
 
@@ -22,9 +22,7 @@ function PlaygroundCanvas({onGenerateLayout}) {
     };
 
     const handleGenerateLayout = () =>{
-        if(onGenerateLayout){
-            onGenerateLayout(droppedComponents);
-        }
+        
     };
   
     return (
