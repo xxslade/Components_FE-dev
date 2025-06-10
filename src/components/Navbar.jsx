@@ -22,6 +22,7 @@ function Navbar() {
         <div className='flex flex-row gap-8 mr-[40px]'>
           
           <NavLink to="/" className="text-white"> Home </NavLink>
+          <NavLink to="/playground" className="text-white"> Playground </NavLink>
           <span className='text-white'>Explore</span>
 
           <div className='flex gap-4'>

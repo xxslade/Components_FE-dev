@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar.jsx';
-import Sidebar from './components/SideBar.jsx';
+import Sidebar from './components/Sidebar.jsx';
 import HomePage from './pages/HomePage.jsx';
 import CardPage from './pages/CardPage.jsx';
 import NavPage from './pages/NavPage.jsx';
@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage.jsx';
 import './App.css';
 import { useState } from 'react';
 import GlobalProvider from './context/GlobalProvider.jsx';
+import PlaygroundPage from './pages/PlaygroundPage.jsx';
 
 
 function App() {
@@ -21,29 +22,30 @@ function App() {
   return (
     <GlobalProvider>
       <Router>
-        <div className='w-full h-screen flex flex-col bg-[#dfd9d9]'>
+        <div className='w-full flex flex-col bg-[#dfd9d9]'>
 
           <Navbar />
 
           <div className='flex-1 flex'>
             <Sidebar />
 
-            <div className='flex-1'>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/buttons" element={<ButtonPage />} />
-                <Route path="/cards" element={<CardPage />} />
-                <Route path="/navbars" element={<NavPage />} />
+          <div className='flex-1'>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/buttons" element={<ButtonPage />} />
+              <Route path="/cards" element={<CardPage />} />
+              <Route path="/navbars" element={<NavPage />} />
               <Route path="/signup" element={<SignupPage/>} />
               <Route path="/login" element={<LoginPage/>} />
-              </Routes>
-            </div>
+              <Route path="/playground" element={<PlaygroundPage/>} />
+            </Routes>
           </div>
+
           <ChatBox />
         </div>
-      <ToastContainer/>
-      </Router>
-    
+    <ToastContainer/>
+    </div>
+    </Router>
     </GlobalProvider>
   );
 }
