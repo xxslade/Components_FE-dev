@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage.jsx';
 import './App.css';
 import { useState } from 'react';
 import GlobalProvider from './context/GlobalProvider.jsx';
+import PlaygroundPage from './pages/PlaygroundPage.jsx';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
   return (
     <GlobalProvider>
       <Router>
-        <div className='w-full h-screen flex flex-col bg-[#dfd9d9]'>
+        <div className='w-full flex flex-col bg-[#dfd9d9]'>
 
           <Navbar />
 
@@ -36,6 +37,7 @@ function App() {
               <Route path="/navbars" element={<NavPage />} />
               <Route path="/signup" element={<SignupPage/>} />
               <Route path="/login" element={<LoginPage/>} />
+              <Route path="/playground" element={<PlaygroundPage/>} />
             </Routes>
           </div>
 
