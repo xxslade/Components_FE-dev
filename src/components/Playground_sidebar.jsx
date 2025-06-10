@@ -14,7 +14,7 @@ function Playground_sidebar({setCompoIsDragged}) {
     const [selectedCategory, setSelectedCategory] = useState('');
 
   return (
-    <div className="w-100 bg-[#4B3A40] text-white p-4 space-y-4 h-screen overflow-y-auto">
+    <div className="w-120 bg-[#4B3A40] text-white p-4 space-y-4 h-[75vw] overflow-y-auto">
       <h2 className="text-xl font-bold mb-4">Component Library</h2>
 
       {Object.keys(componentsLibrary).map((category) => (

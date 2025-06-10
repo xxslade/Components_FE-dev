@@ -6,15 +6,14 @@ import { useState } from 'react';
 function PlaygroundPage() {
     const [compoIsDragged, setCompoIsDragged] = useState(false);
 
-    const handleGenerateLayout = (layoutData) => {
-        console.log("full layout", layoutData);
-    };
-
 
   return (
-    <div className='flex'>
+    <div className='flex gap-24'>
       <Playground_sidebar setCompoIsDragged={setCompoIsDragged}/>
-      <PlaygroundCanvas onGenerateLayout={handleGenerateLayout} compoIsDragged = {compoIsDragged} setCompoIsDragged={setCompoIsDragged}/>
+      <div className='px-24 py-26'>
+        <PlaygroundCanvas  compoIsDragged = {compoIsDragged} setCompoIsDragged={setCompoIsDragged}/>
+      </div>
+     
     </div>
   )
 }

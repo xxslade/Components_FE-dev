@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import DynamicCompiler from './DynamicCompiler'
 
-function PlaygroundCanvas({ onGenerateLayout, compoIsDragged, setCompoIsDragged }) {
+function PlaygroundCanvas({ compoIsDragged, setCompoIsDragged }) {
     const noOfCells = 10
     const cellWidth = 900 / noOfCells;
     const cellHeight = 900 / noOfCells;
+
+    const [loading,setLoading] = useState(false);
     
 
     const [gridOccupancy, setGridOccupancy] = useState(
@@ -48,15 +50,34 @@ function PlaygroundCanvas({ onGenerateLayout, compoIsDragged, setCompoIsDragged 
         e.preventDefault();
     };
 
-    const handleGenerateLayout = () => {
-        if (onGenerateLayout) {
-            onGenerateLayout(droppedComponents);
+    const handleGenerateLayout = async () => {
+        // console.log(droppedComponents);
+        setLoading(true);
+        try{
+            const response = await fetch("http://localhost:4000/api/v1/ai_playground",{
+                method : "POST",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify(droppedComponents)
+            });
+
+            const data = await response.json();
+            if(data.success){
+                console.log(data.code);
+            }else{
+                console.log("Did not get response from llm")
+            }
+        }catch(err){
+            consle.error(err);
         }
+        setLoading(false);
     };
 
     return (
-        <div className='relative bg-gray-300 grid grid-cols-16 grid-rows-16 w-[900px] h-[900px]'>
+        <div className='bg-gray-300 '>
             <div className="relative w-[900px] h-[900px] bg-gray-300" onDrop={handleDrop} onDragOver={handleDragOver}>
+                
                 {/* Grid Overlay */}
                 {compoIsDragged ? (<div className="absolute inset-0 grid grid-cols-10 grid-rows-10 z-0">
                     {[...Array(100)].map((_, index) => {
@@ -88,7 +109,7 @@ function PlaygroundCanvas({ onGenerateLayout, compoIsDragged, setCompoIsDragged 
                 ))}
             </div>
 
-            <div className='p-4'>
+            <div className=' p-4'>
                 <button
                     onClick={handleGenerateLayout}
                     className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow'
