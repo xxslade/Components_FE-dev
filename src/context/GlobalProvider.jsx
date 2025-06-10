@@ -5,10 +5,17 @@ const GlobalProvider = ({ children }) => {
   const [allMessages, setAllMessages] = useState([{ role: "assistant", content: "Hi! How can I help you?" }]);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [tAreaMessage, setTAreaMessage] = useState('');
+  const gridLength = 960
+  const gridWidth = 960
+  const gridDivisions = 10;
+
   const handleSendMessage = (m) => {
+
         const trimmed = m.trim(); // removes whitespace from both ends
         if (trimmed === '') return;
 
+        
+ 
         const nMessage = [...allMessages, { role: "user", content: m }]
         setAllMessages(nMessage);
         console.log(nMessage);
@@ -40,7 +47,10 @@ const GlobalProvider = ({ children }) => {
       setIsCollapsed,
       tAreaMessage,
       setTAreaMessage,
-      handleSendMessage
+      handleSendMessage,
+      gridLength,
+      gridWidth,
+      gridDivisions
     }
 
   return (

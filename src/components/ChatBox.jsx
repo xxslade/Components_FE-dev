@@ -46,7 +46,7 @@ const ChatBox = () => {
 
     const ExpandedChatBox = (
 
-        <div className="h-145 w-1/4 overflow-y-auto p-2 bg-[#250812] text-white rounded fixed bottom-0 right-0 shadow-xl border border-[#51141e]">
+        <div className="z-20 h-145 w-1/4 overflow-y-auto p-2 bg-[#250812] text-white rounded fixed bottom-0 right-0 shadow-xl border border-[#51141e]">
             <div className="flex flex-col gap-3 h-full">
                 {/* Header */}
                 <div className="flex justify-between items-center">
@@ -102,7 +102,7 @@ const ChatBox = () => {
     );
 
     const CollapsedChatBox = (
-        <div className="h-12 w-1/5 p-2 bg-[#250812] text-white rounded fixed bottom-0 right-0 shadow-lg border border-[#51141e]">
+        <div className="z-20 h-12 w-1/5 p-2 bg-[#250812] text-white rounded fixed bottom-0 right-0 shadow-lg border border-[#51141e]">
             <div className="flex justify-between items-center">
                 <span className="text-yellow-300 font-medium">Have doubts?</span>
                 <button
