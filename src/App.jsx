@@ -14,20 +14,23 @@ import './App.css';
 import { useState } from 'react';
 import GlobalProvider from './context/GlobalProvider.jsx';
 import PlaygroundPage from './pages/PlaygroundPage.jsx';
+import { useLocation } from 'react-router-dom';
+
 
 
 function App() {
   
-
+  const location = useLocation();
+  const isPlayground = location.pathname === '/playground';
   return (
     <GlobalProvider>
-      <Router>
+      
         <div className='w-full flex flex-col bg-[#dfd9d9]'>
 
           <Navbar />
 
           <div className='flex-1 flex'>
-            <Sidebar />
+            {!isPlayground && <Sidebar />}  
 
           <div className='flex-1'>
             <Routes>
@@ -45,7 +48,7 @@ function App() {
         </div>
     <ToastContainer/>
     </div>
-    </Router>
+    
     </GlobalProvider>
   );
 }

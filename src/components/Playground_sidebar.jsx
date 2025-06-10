@@ -10,11 +10,11 @@ const componentsLibrary = {
   Card: cardTemplates,
 };
 
-function Playground_sidebar() {
+function Playground_sidebar({setCompoIsDragged}) {
     const [selectedCategory, setSelectedCategory] = useState('');
 
   return (
-    <div className="w-140 bg-[#4B3A40] text-white p-4 space-y-4 h-[70vw] overflow-y-auto">
+    <div className="w-100 bg-[#4B3A40] text-white p-4 space-y-4 h-screen overflow-y-auto">
       <h2 className="text-xl font-bold mb-4">Component Library</h2>
 
       {Object.keys(componentsLibrary).map((category) => (
@@ -43,9 +43,10 @@ function Playground_sidebar() {
               onDragStart={(e) => {
                 e.dataTransfer.setData('componentCode', code);
                 e.dataTransfer.setData('componentType', selectedCategory);
+                setCompoIsDragged(true);
+
               }}
-              className="border p-4 rounded bg-gray-50"
-              >
+              className="border p-4 rounded bg-gray-50">
                 <DynamicCompiler defaultCode={code} previewOnly={true}/>
               </div>
             </div>

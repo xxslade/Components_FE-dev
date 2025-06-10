@@ -1,62 +1,104 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import DynamicCompiler from './DynamicCompiler'
 
-function PlaygroundCanvas({onGenerateLayout}) {
-  
+function PlaygroundCanvas({ onGenerateLayout, compoIsDragged, setCompoIsDragged }) {
+    const noOfCells = 10
+    const cellWidth = 900 / noOfCells;
+    const cellHeight = 900 / noOfCells;
+    
+
+    const [gridOccupancy, setGridOccupancy] = useState(
+        Array(noOfCells).fill(null).map(() => Array(noOfCells).fill(false))
+    );
+
+    const [hoveredCell, setHoveredCell] = useState({ x: null, y: null });
+
     const [droppedComponents, setDroppedComponents] = useState([]);
 
-    const handleDrop=(e) => {
+    const handleDrop = (e) => {
         e.preventDefault();
+        setCompoIsDragged(false);
+
         const componentCode = e.dataTransfer.getData('componentCode');
 
         const canvasRect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - canvasRect.left;
-        const y = e.clientY - canvasRect.top;
+        const X = (e.clientX - canvasRect.left);
+        const Y = (e.clientY - canvasRect.top);
 
-        const newComponent = {code:componentCode,x,y};
-        setDroppedComponents([...droppedComponents,newComponent]);
+        const xCellNo = Math.floor(X / cellWidth);
+        const yCellNo = Math.floor(Y / cellHeight);
+
+        if (gridOccupancy[xCellNo][yCellNo]) {
+            alert("Space already occupied!");
+            return;
+        }
+
+        const x = xCellNo * cellWidth;
+        const y = yCellNo * cellHeight;
+
+        const newGrid = [...gridOccupancy];
+        newGrid[xCellNo][yCellNo] = true;
+        setGridOccupancy(newGrid);
+
+        const newComponent = { code: componentCode, x, y };
+        setDroppedComponents([...droppedComponents, newComponent]);
     }
 
-    const handleDragOver = (e) =>{
+    const handleDragOver = (e) => {
         e.preventDefault();
     };
 
-    const handleGenerateLayout = () =>{
-        if(onGenerateLayout){
+    const handleGenerateLayout = () => {
+        if (onGenerateLayout) {
             onGenerateLayout(droppedComponents);
         }
     };
-  
-    return (
-    <div className='flex-1 flex flex-col items-center justify-center'>
-        <div
-            className='relative bg-gray-300'
-            style ={{width:'900px',height:'900px'}}
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-        >
-            {droppedComponents.map((comp,index) => (
-                <div
-                    key={index}
-                    className='absolute'
-                    style={{top:comp.y,left:comp.x}}
-                >
-                    <DynamicCompiler defaultCode={comp.code} previewOnly={true} />
-                </div>
-            ))}
-        </div>
-                
-        <div className='p-4'>
-            <button
-                onClick={handleGenerateLayout}
-                className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow'
-            >
-                Generate Layout Code
-            </button>
 
+    return (
+        <div className='relative bg-gray-300 grid grid-cols-16 grid-rows-16 w-[900px] h-[900px]'>
+            <div className="relative w-[900px] h-[900px] bg-gray-300" onDrop={handleDrop} onDragOver={handleDragOver}>
+                {/* Grid Overlay */}
+                {compoIsDragged ? (<div className="absolute inset-0 grid grid-cols-10 grid-rows-10 z-0">
+                    {[...Array(100)].map((_, index) => {
+                        const x = index % 10;
+                        const y = Math.floor(index / 10);
+                        const isHovered = hoveredCell.x === x && hoveredCell.y === y;
+                        return (
+                            <div
+                                key={index}
+                                onDragOver={() => setHoveredCell({ x, y })}
+                                className={`border border-dashed w-full h-full ${isHovered
+                                        ? 'bg-green-300 bg-opacity-25'
+                                        : ''
+                                    }`}
+                            />
+                        );
+                    })}
+                </div>): (<div></div>)}
+
+                {/* Dropped Components */}
+                {droppedComponents.map((comp, index) => (
+                    <div
+                        key={index}
+                        className="absolute z-10"
+                        style={{ top: comp.y, left: comp.x }}
+                    >
+                        <DynamicCompiler defaultCode={comp.code} previewOnly={true} />
+                    </div>
+                ))}
+            </div>
+
+            <div className='p-4'>
+                <button
+                    onClick={handleGenerateLayout}
+                    className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow'
+                >
+                    Generate Layout Code
+                </button>
+
+            </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default PlaygroundCanvas;

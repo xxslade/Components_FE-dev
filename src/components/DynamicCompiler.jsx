@@ -66,7 +66,7 @@ export default function DynamicCompiler({ defaultCode, previewOnly = false }) {
         <button
           onClick={handleCopy}
           className="absolute -top-8 right-0 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm shadow"
-        >
+        > 
           {copyStatus || "Copy"}
         </button>
 
