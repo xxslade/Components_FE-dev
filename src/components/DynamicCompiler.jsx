@@ -4,6 +4,7 @@ import Editor from "@monaco-editor/react";
 import { GlobalContext } from "../context/GlobalContext";
 
 export default function DynamicCompiler({ defaultCode, previewOnly = false }) {
+  //console.log(defaultCode);
   const [jsxCode, setJsxCode] = useState(defaultCode);
   const [Comp, setComp] = useState(null);
   const [error, setError] = useState(null);
@@ -18,7 +19,12 @@ export default function DynamicCompiler({ defaultCode, previewOnly = false }) {
   };
 
   useEffect(() => {
+  setJsxCode(defaultCode); // Sync prop change
+}, [defaultCode]);
+
+  useEffect(() => {
     try {
+      // setJsxCode(defaultCode);
       setError(null);
       const wrappedJsx = `(() => (${jsxCode}))()`;
 
