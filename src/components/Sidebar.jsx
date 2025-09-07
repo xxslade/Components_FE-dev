@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // You can use any icon libnpm install lucide-react
+import { Menu, X } from "lucide-react"; 
 
 
 const Sidebar = ({ collapsedBg = 'transparent' }) => {
@@ -38,7 +38,7 @@ const Sidebar = ({ collapsedBg = 'transparent' }) => {
 
           {/* Navigation Links */}
           <div className="flex flex-col gap-3 p-5 mt-4">
-            {[{ to: "/buttons", label: "Buttons" }, { to: "/navbars", label: "Navbars" }, { to: "/cards", label: "Cards" }].map(({ to, label }) => (
+            {[{ to: "/buttons", label: "Buttons" }, { to: "/navbars", label: "Navbars" }, { to: "/cards", label: "Cards" },{ to: "/sidebars", label: "Sidebars" },{ to: "/footers", label: "Footers" }].map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}

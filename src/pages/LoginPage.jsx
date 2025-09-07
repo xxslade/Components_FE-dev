@@ -20,7 +20,7 @@ function LoginPage() {
       e.preventDefault();
       setError("");
        
-      const [email,password] = loginData;
+      const {email,password} = loginData;
       if(!email || !password){
         setError("Insufficient information");
         return;
@@ -34,7 +34,7 @@ function LoginPage() {
           headers :{
             "Content-Type" : "application/json"
           },
-          body : {email,password}
+          body : JSON.stringify({email,password})
         });
 
         const data = await response.json();
